@@ -1,0 +1,705 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,
+         maximum-scale=1.0, user-scalable=no">
+
+        <title>reveal.js</title>
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/theme/league.css">
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section data-background-color="#03324c" id="main-slide"
+                         data-transition="zoom">
+                    <h1>TYPESCRIPT</h1>
+                    <img src="img/typescript.svg" alt="" class="img-style">
+                </section>
+                <section data-background-color="#03324c" id="description-slide">
+                    <h2>So, what is it?</h2>
+                    <blockquote>
+                        &#8220; TypeScript is a typed superset of JavaScript
+                        that compiles to plain JavaScript. Any browser. Any host.
+                        Any OS. Open Source. &#8221;
+                    </blockquote>
+                    <aside class="notes">
+                        TypeScript - is a free and open-source programming
+                        language developed and maintained by Microsoft.
+                        It is a strict superset of JavaScript,
+                        and adds optional static typing and class-based
+                        object-oriented programming to the language.
+                        Any program on JS is a program on the TS.
+                        It may be used to develop JavaScript applications
+                        for client-side or server-side (Node.js).
+                    </aside>
+                </section>
+                <section data-background-color="#03324c" id="history-slide">
+                    <h2 class="orange">Some history...</h2>
+                    <figure>
+                        <p>
+                            <img src="img/creator.png" width="220"
+                                 class="img-style">
+                        </p>
+                        <figcaption class="orange">Anders Hejlsberg</figcaption>
+                    </figure>
+                    <p> Anders Hejlsberg, lead architect of C# and creator of
+                    Delphi and Turbo Pascal - creator of TypeScript.</p>
+                    <p>TypeScript was first made public in October 2012
+                    (at version 0.8), after two years of internal
+                    development at Microsoft. </p>
+                    <p> This version supports the
+                    development only in Visual Studio, which is not
+                    available on Linux and OS X.</p>
+                    <aside class="notes">
+                        Anders Hejlsberg, lead architect of C# and creator of
+                        Delphi and Turbo Pascal, has worked on the development
+                        of TypeScript. First made public - October 2012
+                        (version 0.8). This version supports the development
+                        only in Visual Studio, which is not available on Linux
+                        and OS X. Now the situation has changed - TS supported
+                        many IDE (Sublime, WebStorm, Vim, Atom, Emacs etc.).
+                    </aside>
+                </section>
+                <section data-background-color="#03324c" id="why-slide"
+                         data-transition="zoom">
+                    <h1>WHY TYPESCRIPT?</h1>
+                </section>
+                <section data-background-color="#03324c" id="js-fun-slide">
+                    <img src="img/three_words.jpg">
+                </section>
+                <section data-background-color="#03324c" id="flaws-slide">
+                    <h2 class="orange">Main JS flaws: </h2>
+                    <ul>
+                        <li class="fragment">Lack of modularity</li>
+                        <li class="fragment">Sometimes strange behaviour</li>
+                        <li class="fragment">Dynamic typing</li>
+                    </ul>
+                    <aside class="notes">
+                        I think, the main problem is dynamic typing because
+                        you have no idea which concrete type is returned,
+                        so you have no idea what you can do with the result.
+                        In a static type system, you have compiler-checked
+                        annotations of return types and such, but in a dynamic
+                        language the same knowledge still exists.
+                        TS help us to correct some flaws of JS.
+                    </aside>
+                </section>
+                <section data-background-color="#03324c" id="gif-slide">
+                    <h2>TypeScript - typed Javascript?</h2>
+                    <img src="img/typed_js.gif">
+                </section>
+                <section data-background-color="#03324c" id="wat-slide">
+                    <h2 class="orange">TS <span>vs</span> JS (wat cases)</h2>
+                    <table>
+                        <tr>
+                            <th class="blue"> Example </th>
+                            <th class="blue"> JS </th>
+                            <th class="blue"> TS </th>
+                        </tr>
+                        <tr>
+                            <td><p> [ ] + [ ]</p></td>
+                            <td><p> "" </p></td>
+                            <td><p class="red">Error</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>{ } + { }</p></td>
+                            <td><p>NaN</p></td>
+                            <td><p class="red">Error</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>[ ] + { }</p></td>
+                            <td><p>" [object Object] "</p></td>
+                            <td><p class="red">Error</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>{ } + [ ]</p></td>
+                            <td><p>0</p></td>
+                            <td><p class="red">Error</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>"hello" - 1</p></td>
+                            <td><p>NaN</p></td>
+                            <td><p class="red">Error</p></td>
+                        </tr>
+                    </table>
+                    <aside class="notes">
+                        As we can see TS solves the problem with JS wat cases.
+                        All of these examples return an error in TS, unlike JS.
+                    </aside>
+                </section>
+                <section data-background-color="#03324c" id="goals-slide">
+                    <h2 class="orange">Main goals</h2>
+                    <ul>
+                        <li>Provide an optional type system for JS</li>
+                        <li>Provide planned features from future JS editions
+                            to current JS engines
+                        </li>
+                    </ul>
+                </section>
+                <section data-background-color="#03324c" id="es6-slide">
+                    <h2 class="orange">ES6 <span>vs</span> TS</h2>
+                    <img src="img/diagram_ts.png" alt="" class="img-style">
+                    <aside class="notes">
+                        TypeScript isn’t a completely new language,
+                        it’s a superset of ES6. If we write ES6 code,
+                        it’s perfectly valid and compilable TypeScript code.
+                        Here’s a diagram that shows the relationship between
+                        the languages. If you want to use ES6,
+                        you definitely can. Then why should we use TypeScript
+                        at all? Because there are some great features in
+                        TypeScript that make development a lot better.
+                    </aside>
+                </section>
+                <section data-background-color="#03324c" id="features-slide">
+                    <h2 class="blue"><img src="img/ts_logo.png" alt=""> Features</h2>
+                    <ul>
+                        <li>Simple class-based OOP with inheritance</li>
+                        <li>Access modifiers for all classes</li>
+                        <li>Type setting for variables, parameters and return values</li>
+                        <li>Incredible error detection which ties into static typing</li>
+                        <li>Code hints for autocomplete and the return type of a function</li>
+                        <li>The keyword this can be set to operate within the current class or method</li>
+                        <li>Defined separation between let and var</li>
+                    </ul>
+                </section>
+                <section data-background-color="#03324c" id="started-slide">
+                    <h2 class="orange">Getting started</h2>
+                    <ul>
+                        <li>
+                            <p> Install via npm:</p>
+                            <pre>
+                            <code class="hljs bash hljs">npm install -g typescript</code>
+                        </pre>
+                        </li>
+                        <li>
+                            <p>By installing TS's Visual Studio plugins</p>
+                        </li>
+                    </ul>
+                    <aside class="notes">
+                        There are two main ways to get TS tools:
+                        - Via npm (the Node.js package manager)
+                        - By installing TS’s Visual Studio plugins
+                        We can see the command for npm
+                        Extension for TS files is - .ts.
+                        Your JavaScript code .js file can be renamed to a .ts
+                        file and TypeScript will still give you back valid
+                        .js equivalent to the original JavaScript file.
+                    </aside>
+                </section>
+                <section data-background-color="#03324c" id="topten-slide">
+                    <h1>Top 10 things about TS</h1>
+                </section>
+                <section data-background-color="#03324c" id="types-slide">
+                    <h2 class="orange">1. Data types</h2>
+                    <section>
+                        <img src="img/data_types.png" alt="" class="img-style">
+                    </section>
+                    <section>
+                        <pre data-markdown="">
+                            <code class="hljs typescript hljs">
+                                // Boolean
+                                let isDone: boolean = false;
+
+                                // Number
+                                let dec: number = 6;
+                                let hex: number = 0xf00d;
+                                let bin: number = 0b1010;
+                                let oct: number = 0o744;
+
+                                // String
+                                let color: string = "blue";
+
+                                // Array
+                                let list: number[] = [1, 2, 3];
+                                let list: Array&lt;number&gt; = [1, 2, 3];
+
+                                //Declare a tuple type
+                                let x: [string, number];
+                                x = ["hello", 10]; // OK
+                                x = [10, "hello"]; // Error
+                            </code>
+                        </pre>
+                        <aside class="notes">
+                            <p>
+                                1. The most basic datatype is the simple
+                                true/false value, which JavaScript and
+                                TypeScript call a boolean value.
+                            </p>
+                            <p>
+                                2. As in JavaScript, all numbers in TypeScript
+                                are floating point values. In addition to
+                                hexadecimal and decimal literals, TypeScript
+                                also supports binary and octal literals
+                                introduced in ECMAScript 2015.
+                            </p>
+                            <p>
+                                3. As in other languages, we use the type string
+                                to refer to these textual datatypes.Just like
+                                JavaScript, TypeScript also uses double quotes
+                                (") or single quotes (') to surround
+                                tring data.
+                            </p>
+                            <p> 4. Array types can be written in
+                                one of two ways.
+                            </p>
+                            <p> 5. Tuple types allow you to express an array
+                                where the type of a fixed number of elements
+                                is known, but need not be the same.
+                                For example, you may want to represent
+                                a value as a pair of a string and a number.
+                            </p>
+                        </aside>
+                    </section>
+                    <section>
+                        <pre data-markdown="">
+                            <code class="hljs typescript hljs">
+                                // Enum
+                                enum Color {Red, Green, Blue};
+                                let c: Color = Color.Green;
+
+                                // Any
+                                let notSure: any = 4;
+                                notSure = "maybe a string instead";
+                                notSure = false; // okay, definitely a boolean
+
+                                // Void
+                                function warnUser(): void {
+                                    alert("This is my warning message");
+                                }
+
+                                // Null and Undefined
+                                let u: undefined = undefined;
+                                let n: null = null;
+
+                                // Never
+                                function error(message: string): never {
+                                    throw new Error(message);
+                                }
+                            </code>
+                        </pre>
+                        <aside class="notes">
+                            <p>
+                                1. A helpful addition to the standard set of
+                                datatypes from JavaScript is the enum.
+                                As in languages like C#, an enum is a way
+                                of giving more friendly names to sets of
+                                numeric values.
+                            </p>
+                            <p>
+                                2. We may need to describe the type of variables
+                                that we do not know when we are writing an
+                                application. These values may come from dynamic
+                                content.The any type is also handy if you know
+                                some part of the type, but perhaps not all of
+                                it. For example, you may have an array but
+                                the array has a mix of different types.
+                            </p>
+                            <p>
+                                3. Void is a little like the opposite of any:
+                                the absence of having any type at all.
+                                You may commonly see this as the return
+                                type of functions that do not return a value.
+                            </p>
+                            <p>
+                                4. In TypeScript, both undefined and null
+                                actually have their own types named undefined
+                                and null respectively. Much like void,
+                                they’re not extremely useful on their own.
+                            </p>
+                            <p>
+                                5. The never type represents the type of values
+                                that never occur. For instance, never is the
+                                return type for a function expression or an
+                                arrow function expression that always throws
+                                an exception or one that never returns;
+                                Variables also acquire the type never
+                                when narrowed by any type guards that can
+                                never be true.
+                            </p>
+                        </aside>
+                    </section>
+                </section>
+                <section data-background-color="#03324c" id="variable-slide">
+                    <section>
+                        <h2 class="orange">2. Variable declaration</h2>
+                        <table>
+                            <tr>
+                                <th><h3 class="red">var <img src="img/bad.png" width="50" class="img-style"></h3></th>
+                                <th><h3 class="green">let <img src="img/good.png" width="50" class="img-style"></h3></th>
+                                <th><h3 class="green">const<img src="img/good.png" width="50" class="img-style"></h3></th>
+                            </tr>
+                            <tr>
+                                <td>can be reassigned and use anywhere in the function</td>
+                                <td>can be reassigned but only in the blocks it is defined in</td>
+                                <td>won’t be reassigne</td>
+                            </tr>
+                        </table>
+                        <aside class="notes">
+                            <p>
+                                When a variable is declared using let,
+                                it uses what some call lexical-scoping or
+                                block-scoping. You can’t redeclarate your
+                                let variable in block where it in,
+                                instead of var variable.
+                            </p>
+                            <p> Const declarations are another way of declaring
+                                variables. They are like let declarations but,
+                                as their name implies, their value cannot be
+                                changed once they are bound. In other words,
+                                they have the same scoping rules as let, but
+                                you can’t re-assign to them.
+                            </p>
+                        </aside>
+                    </section>
+                </section>
+                <section data-background-color="#03324c" id="classes-slide">
+                    <h2 class="orange">3. Classes</h2>
+                    <pre data-markdown="">
+                        <code class="hljs typescript hljs">
+                            class Customer {
+                                let customerId: number;
+                                let companyName: string;
+
+                                addCustomer() {
+                                    //some code here
+                                }
+
+                                removeCustomer() {
+                                    //some code here
+                                }
+
+                                updateCustomer() {
+                                    //some code here
+                                }
+
+                                getCustomer() {
+                                    //some code here
+                                }
+                            }
+
+                            var obj = new Customer();
+                            obj.customerId = 100;
+                            obj.companyName = "Some Company";
+                            obj.addCustomer();
+                        </code>
+                    </pre>
+                    <aside class="notes">
+                        TypeScript allows you to easily and neatly organize
+                        your code in classes. The following class declaration
+                        shows how. This code creates a class named Customer
+                        using the class keyword of TypeScript. Just like C#
+                        classes a TypeScript class can have properties,
+                        methods and constructors. Once created you can
+                        initialize an object of Customer class as shown below.
+                    </aside>
+                </section>
+                <section data-background-color="#03324c" id="access-slide">
+                    <h2 class="orange">4. Access Modifiers and Properties</h2>
+                    <p>TypeScript has four access modifiers -
+                        <font color="yellow">public, private,
+                            protected and readonly.</font></p>
+                    <pre data-markdown="">
+                        <code class="hljs typescript hljs">
+                            class Animal {
+                                private name: string;
+                                constructor(theName: string) {
+                                    this.name = theName;
+                                }
+                            }
+                            new Animal("Cat").name; // Error: 'name' is private;
+                        </code>
+                    </pre>
+                    <pre data-markdown="">
+                        <code class="hljs typescript hljs">
+                            class Octopus {
+                                readonly name: string;
+                                readonly numberOfLegs: number = 8;
+                                constructor (theName: string) {
+                                    this.name = theName;
+                                }
+                            }
+
+                            let man = new Octopus("Man with the 8 strong legs");
+                            man.name = "Man with the 3-piece suit"; // error! name is readonly.
+                        </code>
+                    </pre>
+                    <aside class="notes">
+                        TypeScript has four access modifiers - public,
+                        private, protected and readonly.
+                        By default the members are public
+                        but you can explicitly add a protected or private
+                        modifier to them. When a member is marked private,
+                        it cannot be accessed from outside of its containing
+                        class. The protected modifier acts much like the private
+                        modifier with the exception that members declared
+                        protected can also be accessed by instances of
+                        deriving classes. You can make properties readonly
+                        by using the readonly keyword. Readonly properties
+                        must be initialized at their declaration or in the
+                        constructor.
+                    </aside>
+                </section>
+                <section data-background-color="#03324c" id="static-slide">
+                    <h2 class="orange">5. Static properties</h2>
+                    <p> TypeScript classes support static properties that
+                        are shared by all instances of the class.</p>
+                    <pre data-markdown="">
+                        <code class="hljs typescript hljs">
+                            class Something {
+                                static instances = 0;
+                                constructor() {
+                                    Something.instances++;
+                                }
+                            }
+
+                            var s1 = new Something();
+                            var s2 = new Something();
+                            console.log(Something.instances); // 2
+                        </code>
+                    </pre>
+                    <aside class="notes">
+                        TypeScript classes support static
+                        properties that are shared by all instances of the
+                        class. A natural place to put (and access)
+                        them is on the class itself and that is what
+                        TypeScript does.
+                    </aside>
+                </section>
+                <section data-background-color="#03324c" id="overloading-slide">
+                    <h2 class="orange">6. Function Overloading</h2>
+                    <p>You can invoke different implementations of a
+                        function depending on the parameter.</p>
+                    <pre data-markdown="">
+                        <code class="hljs typescript hljs">
+                            addCustomer(custId: number);
+                            addCustomer(company: string);
+                            addCustomer(value: any) {
+                                if (value && typeof value == "number") {
+                                    alert("First overload - " + value);
+                                }
+                                if (value && typeof value == "string") {
+                                    alert("Second overload - " + value);
+                                }
+                            }
+                        </code>
+                    </pre>
+                    <aside class="notes">
+                        The following simple example shows how two versions
+                        of a function can be created in TypeScript.
+                        As you can see the first two are merely function s
+                        ignatures without any implementation. The first
+                        signature has one parameter of type number whereas
+                        the second signature has a parameter of type string.
+                        The third function contains the actual implementation
+                        and has a parameter of type any. The any data type
+                        indicates that any type of data can be passed in
+                        the parameter.
+                    </aside>
+                </section>
+                <section data-background-color="#03324c" id="constructors-slide">
+                    <h2 class="orange">7. Constructors</h2>
+                    <p>Stop manually assigning constructor parameters.</p>
+                    <pre data-markdown="">
+                        <code class="hljs typescript hljs">
+                            constructor(custId: number, company: string, country: string)
+                            {
+                                this.customerId = custId;
+                                this.companyName = company;
+                                this.country = country;
+                            }
+                        </code>
+                    </pre>
+                    <pre data-markdown="">
+                        <code class="hljs typescript hljs">
+                            constructor(public customerId: number, public companyName: string,
+                                        public country: string) {
+                            }
+                        </code>
+                    </pre>
+                    <aside class="notes">
+                        The classes you define in TypeScript can have
+                        constructor. The constructor usually does the job of
+                        initializing the object by setting default values to
+                        its properties. The constructor can also be overloaded
+                        just like a function. The following code shows how a
+                        constructor can be created.
+                        As you can see the constructor parameters are specified
+                        while instantiating the class. There is also one more
+                        handy use of the constructor - instead of defining
+                        properties explicitly in the class they can be defined
+                        in the constructor signature itself. The following code
+                        shows how this can be done.
+                    </aside>
+                </section>
+                <section data-background-color="#03324c" id="-slide">
+                    <h2 class="orange">8. Inheritance</h2>
+                    <pre data-markdown="">
+                        <code class="hljs typescript hljs">
+                            class Animal {
+                                name: string;
+                                constructor(theName: string) { this.name = theName; }
+                                move(distanceInMeters: number = 0) {
+                                    console.log(`${this.name} moved ${distanceInMeters}m.`);
+                                }
+                            }
+
+                            class Snake extends Animal {
+                                constructor(name: string) { super(name); }
+                                move(distanceInMeters = 5) {
+                                    console.log("Slithering...");
+                                    super.move(distanceInMeters);
+                                }
+                            }
+
+                            let sam = new Snake("Sammy the Python");
+                            sam.move();
+                        </code>
+                    </pre>
+                    <aside class="notes">
+                        TypeScript allows you to inherit from existing classes.
+                        By inheriting classes you can extend their functionality
+                        as per your requirement. For example, you may have a
+                        class named Animal. You can create specialized classes
+                        based on the Animal class by extending it in the other
+                        classes. The following code shows how this can be done.
+                    </aside>
+                </section>
+                <section data-background-color="#03324c" id="interfaces-slide">
+                    <h2 class="orange">9. Interfaces</h2>
+                    <p>Interfaces are used in TypeScript to define
+                        the structure of objects (and only objects).</p>
+                    <pre data-markdown="">
+                        <code class="hljs typescript hljs">
+                            interface Person {
+                                firstname: string;
+                                lastname: string;
+                            }
+                        </code>
+                    </pre>
+                    <aside class="notes">
+                        Interfaces are used in TypeScript to define the
+                        structure of objects (and only objects). In this
+                        example, we’re saying that any variable of type
+                        Person must be an object containing a firstname and
+                        a lastname property, both of the string type. We’re
+                        basically creating a custom type for our object.
+                    </aside>
+                </section>
+                <section data-background-color="#03324c" id="module-slide">
+                    <h2 class="orange">10. Modules</h2>
+                    <p>A module is a container for your code that helps
+                        you organize your code in a neat way.</p>
+                    <pre data-markdown="">
+                        <code class="hljs typescript hljs">
+                            module Company {
+                                class Employee {}
+
+                                class EmployeeHelper {
+                                    targetEmployee: Employee;
+                                }
+
+                                export class Customer {}
+                            }
+                            var obj = new Company.Customer();
+                        </code>
+                    </pre>
+                    <aside class="notes">
+                        As your TypeScript code base grows it becomes important
+                        to organize classes and interfaces for better
+                        maintainability. TypeScript modules allow you to do
+                        just that. A module is a container for your code that
+                        helps you organize your code in a neat way.
+                        Conceptually you may find them similar to .NET
+                        namespaces. Let's see how to create a module.
+                        The above code defines Company module using the module
+                        keyword. The Company module contains three classes -
+                        Employee, EmployeeHelper and Customer. By default all
+                        the classes from a module are accessible only within
+                        that module. That is why it is alright to access the
+                        Employee class inside the EmployeeHelper class from
+                        the same module but you can't access the Employee
+                        class from outside the Company module. If you wish to
+                        access a class from a module from the outside world
+                        you need to "export" it as in the case of the Customer
+                        class.
+                    </aside>
+                </section>
+                <section data-background-color="#03324c" id="uses-slide">
+                    <h2 class="orange">When it makes sense to use</h2>
+                    <ul>
+                        <li>When you have a large codebase</li>
+                        <li>When your team’s developers are already
+                            accustom to statically-typed languages</li>
+                        <li>TypeScript can serve as a replacement for Babel</li>
+                        <li>When you really feel the need for speed</li>
+                    </ul>
+                </section>
+                <section data-background-color="#03324c" id="statistic-slide">
+                    <h2 class="orange">Dynamic popularity</h2>
+                    <img src="img/ts_dynamic.jpg" alt="" class="img-style"
+                         width="600">
+                    <img src="img/js_dynamic.jpg" alt="" class="img-style"
+                         width="600">
+                    <aside class="notes">
+                        Looking at Google Trends, we can definitely see
+                        that TypeScript’s popularity is rapidly increasing.
+                        I expect it to continue growing at a rapid pace.
+                        And on the other hand, JavaScript’s popularity is s
+                        lowly but surely decreasing.
+                    </aside>
+                </section>
+                <section data-background-color="#03324c" id="conclusion-slide">
+                    <img src="img/conclusion.png" alt="" class="img-style"
+                         width="50%">
+                </section>
+                <section data-background-color="#03324c" id="finish-slide">
+                    <blockquote>
+                        &#8220;Microsoft's TypeScript may be the best of the
+                    many JavaScript front ends. It seems to generate the most
+                    attractive code. And I think it should take pressure off of
+                    the ECMAScript Standard for new features like type
+                    declarations and classes.&#8221;
+                    </blockquote>
+                    <img src="img/typescript.svg" alt="" class="img-style">
+                    <aside class="notes">
+                        Overall TypeScript is a promising language  t
+                        hat can certainly help you neatly write and organize
+                        your JavaScript code base making it more maintainable
+                        and extensible. Life goes on and TypeScript introduces
+                        new features to its community anyway.
+                    </aside>
+                </section>
+            </div>
+        </div>
+        
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            Reveal.initialize({
+                history: true,
+                transition: 'convex',
+                transitionSpeed: 'slow',
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.pack.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>

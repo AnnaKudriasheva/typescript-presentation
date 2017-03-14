@@ -1,0 +1,95 @@
+.img-style {
+    border: none !important;
+    box-shadow: none !important;
+    background: inherit !important;
+}
+
+.orange {
+    color: orange !important;
+}
+
+.blue {
+    color: #137dca !important;
+}
+
+.red {
+    color: red !important;
+}
+
+.green {
+    color: #00c664 !important;
+}
+
+pre {
+    box-shadow: none !important;
+}
+
+#history-slide figure {
+    width: 250px;
+    float: left;
+    margin: 0 10px 10px 0;
+    text-align: center;
+}
+
+#history-slide figure figcaption {
+    font-size: 26px;
+    padding-right: 30px;
+}
+
+#history-slide figure img {
+    margin: 0;
+}
+
+#history-slide {
+    overflow: hidden;
+}
+
+#history-slide p {
+    font-size: 30px;
+    margin: 0;
+    text-align: left;
+}
+
+#wat-slide h2 span {
+    font-size: 50px;
+}
+
+#wat-slide table tr th {
+    color: #137dca;
+}
+
+#wat-slide table tr p {
+    margin: 0;
+}
+
+#gif-slide img {
+    border: none;
+    width: 500px;
+}
+
+#features-slide ul li {
+    font-size: 25px;
+}
+
+#features-slide h2 img {
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    width: 150px;
+    background: inherit;
+}
+
+#es6-slide h2 span {
+    font-size: 50px;
+}
+
+#started-slide p {
+    text-align: left;
+    margin-left: 20px;
+    font-size: 35px;
+}
+
+#variable-slide img {
+    margin: 0;
+}
+
