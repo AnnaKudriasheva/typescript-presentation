@@ -135,6 +135,7 @@
                     <td><p class="red">Error</p></td>
                 </tr>
             </table>
+            <img class="img-style" src="img/facepalm.jpg" style="position: absolute">
             <aside class="notes">
                 As we can see TS solves the problem with JS wat cases.
                 All of these examples return an error in TS, unlike JS.
@@ -168,16 +169,10 @@
             <ul>
                 <li>Simple class-based OOP with inheritance</li>
                 <li>Access modifiers for all classes</li>
-                <li>Type setting for variables, parameters and return values
-                </li>
-                <li>Incredible error detection which ties into static typing
-                </li>
-                <li>Code hints for autocomplete and the return type of a
-                    function
-                </li>
-                <li>The keyword this can be set to operate within the current
-                    class or method
-                </li>
+                <li>Type setting for variables, parameters and return values</li>
+                <li>Incredible error detection which ties into static typing</li>
+                <li>Code hints for autocomplete and the return type of a function</li>
+                <li>The keyword this can be set to operate within the current class or method</li>
                 <li>Defined separation between let and var</li>
             </ul>
         </section>
@@ -207,6 +202,7 @@
         </section>
         <section data-background-color="#03324c" id="topten-slide">
             <h1>Top 10 things about TS</h1>
+            <img src="img/kitty.png" class="img-style">
         </section>
         <section data-background-color="#03324c" id="types-slide">
             <h2 class="orange">1. Data types</h2>
@@ -214,30 +210,28 @@
                 <img src="img/data_types.png" alt="" class="img-style">
             </section>
             <section>
-                        <pre data-markdown="">
-                            <code class="hljs typescript hljs">
-                                // Boolean
-                                let isDone: boolean = false;
+    <pre><code>
+        // Boolean
+        let isDone: boolean = false;
 
-                                // Number
-                                let dec: number = 6;
-                                let hex: number = 0xf00d;
-                                let bin: number = 0b1010;
-                                let oct: number = 0o744;
+        // Number
+        let dec: number = 6;
+        let hex: number = 0xf00d;
+        let bin: number = 0b1010;
+        let oct: number = 0o744;
 
-                                // String
-                                let color: string = "blue";
+        // String
+        let color: string = "blue";
 
-                                // Array
-                                let list: number[] = [1, 2, 3];
-                                let list: Array&lt;number&gt; = [1, 2, 3];
+        // Array
+        let list: number[] = [1, 2, 3];
+        let list: Array&lt;number&gt; = [1, 2, 3];
 
-                                //Declare a tuple type
-                                let x: [string, number];
-                                x = ["hello", 10]; // OK
-                                x = [10, "hello"]; // Error
-                            </code>
-                        </pre>
+        //Declare a tuple type
+        let x: [string, number];
+        x = ["hello", 10]; // OK
+        x = [10, "hello"]; // Error
+    </code></pre>
                 <aside class="notes">
                     <p>
                         1. The most basic datatype is the simple
@@ -270,32 +264,30 @@
                 </aside>
             </section>
             <section>
-                        <pre data-markdown="">
-                            <code class="hljs typescript hljs">
-                                // Enum
-                                enum Color {Red, Green, Blue};
-                                let c: Color = Color.Green;
+    <pre><code>
+        // Enum
+        enum Color {Red, Green, Blue};
+        let c: Color = Color.Green;
 
-                                // Any
-                                let notSure: any = 4;
-                                notSure = "maybe a string instead";
-                                notSure = false; // okay, definitely a boolean
+        // Any
+        let notSure: any = 4;
+        notSure = "maybe a string instead";
+        notSure = false; // okay, definitely a boolean
 
-                                // Void
-                                function warnUser(): void {
-                                    alert("This is my warning message");
-                                }
+        // Void
+        function warnUser(): void {
+            alert("This is my warning message");
+        }
 
-                                // Null and Undefined
-                                let u: undefined = undefined;
-                                let n: null = null;
+        // Null and Undefined
+        let u: undefined = undefined;
+        let n: null = null;
 
-                                // Never
-                                function error(message: string): never {
-                                    throw new Error(message);
-                                }
-                            </code>
-                        </pre>
+        // Never
+        function error(message: string): never {
+            throw new Error(message);
+        }
+    </code></pre>
                 <aside class="notes">
                     <p>
                         1. A helpful addition to the standard set of
@@ -385,35 +377,28 @@
         </section>
         <section data-background-color="#03324c" id="classes-slide">
             <h2 class="orange">3. Classes</h2>
-            <pre data-markdown="">
-                        <code class="hljs typescript hljs">
-                            class Customer {
-                                let customerId: number;
-                                let companyName: string;
-
-                                addCustomer() {
-                                    //some code here
-                                }
-
-                                removeCustomer() {
-                                    //some code here
-                                }
-
-                                updateCustomer() {
-                                    //some code here
-                                }
-
-                                getCustomer() {
-                                    //some code here
-                                }
-                            }
-
-                            var obj = new Customer();
-                            obj.customerId = 100;
-                            obj.companyName = "Some Company";
-                            obj.addCustomer();
-                        </code>
-                    </pre>
+            <pre><code>
+        class Customer {
+            let customerId: number;
+            let companyName: string;
+            addCustomer() {
+                //some code here
+            }
+            removeCustomer() {
+                //some code here
+            }
+            updateCustomer() {
+                //some code here
+            }
+            getCustomer() {
+                //some code here
+            }
+        }
+        var obj = new Customer();
+        obj.customerId = 100;
+        obj.companyName = "Some Company";
+        obj.addCustomer();
+    </code></pre>
             <aside class="notes">
                 TypeScript allows you to easily and neatly organize
                 your code in classes. The following class declaration
@@ -429,31 +414,26 @@
             <p>TypeScript has four access modifiers -
                 <font color="yellow">public, private,
                     protected and readonly.</font></p>
-            <pre data-markdown="">
-                        <code class="hljs typescript hljs">
-                            class Animal {
-                                private name: string;
-                                constructor(theName: string) {
-                                    this.name = theName;
-                                }
-                            }
-                            new Animal("Cat").name; // Error: 'name' is private;
-                        </code>
-                    </pre>
-            <pre data-markdown="">
-                        <code class="hljs typescript hljs">
-                            class Octopus {
-                                readonly name: string;
-                                readonly numberOfLegs: number = 8;
-                                constructor (theName: string) {
-                                    this.name = theName;
-                                }
-                            }
+            <pre><code>
+            // "PRIVATE" EXAMPLE
+            class Animal {
+                private name: string;
+                constructor(theName: string) {
+                    this.name = theName;
+                }
+            }
+            new Animal("Cat").name; // Error: 'name' is private;
 
-                            let man = new Octopus("Man with the 8 strong legs");
-                            man.name = "Man with the 3-piece suit"; // error! name is readonly.
-                        </code>
-                    </pre>
+            // "READONLY" EXAMPLE
+            class Animal {
+                readonly name: string;
+                constructor (theName: string) {
+                    this.name = theName;
+                }
+            }
+            let cat = new Animal("Kitty");
+            cat.name = "Gizmo"; // Error: 'name' is readonly.
+    </code></pre>
             <aside class="notes">
                 TypeScript has four access modifiers - public,
                 private, protected and readonly.
@@ -474,20 +454,18 @@
             <h2 class="orange">5. Static properties</h2>
             <p> TypeScript classes support static properties that
                 are shared by all instances of the class.</p>
-            <pre data-markdown="">
-                        <code class="hljs typescript hljs">
-                            class Something {
-                                static instances = 0;
-                                constructor() {
-                                    Something.instances++;
-                                }
-                            }
+            <pre><code>
+        class Something {
+            static instances = 0;
+            constructor() {
+                Something.instances++;
+            }
+        }
 
-                            var s1 = new Something();
-                            var s2 = new Something();
-                            console.log(Something.instances); // 2
-                        </code>
-                    </pre>
+        var s1 = new Something();
+        var s2 = new Something();
+        console.log(Something.instances); // 2
+    </code></pre>
             <aside class="notes">
                 TypeScript classes support static
                 properties that are shared by all instances of the
@@ -500,20 +478,18 @@
             <h2 class="orange">6. Function Overloading</h2>
             <p>You can invoke different implementations of a
                 function depending on the parameter.</p>
-            <pre data-markdown="">
-                        <code class="hljs typescript hljs">
-                            addCustomer(custId: number);
-                            addCustomer(company: string);
-                            addCustomer(value: any) {
-                                if (value && typeof value == "number") {
-                                    alert("First overload - " + value);
-                                }
-                                if (value && typeof value == "string") {
-                                    alert("Second overload - " + value);
-                                }
-                            }
-                        </code>
-                    </pre>
+            <pre><code>
+        addCustomer(custId: number);
+        addCustomer(company: string);
+        addCustomer(value: any) {
+            if (value && typeof value == "number") {
+                alert("First overload - " + value);
+            }
+            if (value && typeof value == "string") {
+                alert("Second overload - " + value);
+            }
+        }
+    </code></pre>
             <aside class="notes">
                 The following simple example shows how two versions
                 of a function can be created in TypeScript.
@@ -530,23 +506,19 @@
         <section data-background-color="#03324c" id="constructors-slide">
             <h2 class="orange">7. Constructors</h2>
             <p>Stop manually assigning constructor parameters.</p>
-            <pre data-markdown="">
-                        <code class="hljs typescript hljs">
-                            constructor(custId: number, company: string, country: string)
-                            {
-                                this.customerId = custId;
-                                this.companyName = company;
-                                this.country = country;
-                            }
-                        </code>
-                    </pre>
-            <pre data-markdown="">
-                        <code class="hljs typescript hljs">
-                            constructor(public customerId: number, public companyName: string,
-                                        public country: string) {
-                            }
-                        </code>
-                    </pre>
+            <pre><code>
+        constructor(custId: number, company: string, country: string)
+        {
+            this.customerId = custId;
+            this.companyName = company;
+            this.country = country;
+        }
+    </code></pre>
+            <pre><code>
+        constructor(public customerId: number, public companyName: string,
+                    public country: string) {
+        }
+    </code></pre>
             <aside class="notes">
                 The classes you define in TypeScript can have
                 constructor. The constructor usually does the job of
@@ -564,28 +536,26 @@
         </section>
         <section data-background-color="#03324c" id="-slide">
             <h2 class="orange">8. Inheritance</h2>
-            <pre data-markdown="">
-                        <code class="hljs typescript hljs">
-                            class Animal {
-                                name: string;
-                                constructor(theName: string) { this.name = theName; }
-                                move(distanceInMeters: number = 0) {
-                                    console.log(`${this.name} moved ${distanceInMeters}m.`);
-                                }
-                            }
+            <pre><code>
+        class Animal {
+            name: string;
+            constructor(theName: string) { this.name = theName; }
+            move(distanceInMeters: number = 0) {
+                console.log(`${this.name} moved ${distanceInMeters}m.`);
+            }
+        }
 
-                            class Snake extends Animal {
-                                constructor(name: string) { super(name); }
-                                move(distanceInMeters = 5) {
-                                    console.log("Slithering...");
-                                    super.move(distanceInMeters);
-                                }
-                            }
+        class Snake extends Animal {
+            constructor(name: string) { super(name); }
+            move(distanceInMeters = 5) {
+                console.log("Slithering...");
+                super.move(distanceInMeters);
+            }
+        }
 
-                            let sam = new Snake("Sammy the Python");
-                            sam.move();
-                        </code>
-                    </pre>
+        let sam = new Snake("Sammy the Python");
+        sam.move();
+    </code></pre>
             <aside class="notes">
                 TypeScript allows you to inherit from existing classes.
                 By inheriting classes you can extend their functionality
@@ -599,14 +569,12 @@
             <h2 class="orange">9. Interfaces</h2>
             <p>Interfaces are used in TypeScript to define
                 the structure of objects (and only objects).</p>
-            <pre data-markdown="">
-                        <code class="hljs typescript hljs">
-                            interface Person {
-                                firstname: string;
-                                lastname: string;
-                            }
-                        </code>
-                    </pre>
+            <pre><code>
+        interface Person {
+            firstname: string;
+            lastname: string;
+        }
+    </code></pre>
             <aside class="notes">
                 Interfaces are used in TypeScript to define the
                 structure of objects (and only objects). In this
@@ -620,20 +588,18 @@
             <h2 class="orange">10. Modules</h2>
             <p>A module is a container for your code that helps
                 you organize your code in a neat way.</p>
-            <pre data-markdown="">
-                        <code class="hljs typescript hljs">
-                            module Company {
-                                class Employee {}
+            <pre><code>
+        module Company {
+            class Employee {}
 
-                                class EmployeeHelper {
-                                    targetEmployee: Employee;
-                                }
+            class EmployeeHelper {
+                targetEmployee: Employee;
+            }
 
-                                export class Customer {}
-                            }
-                            var obj = new Company.Customer();
-                        </code>
-                    </pre>
+            export class Customer {}
+        }
+        var obj = new Company.Customer();
+    </code></pre>
             <aside class="notes">
                 As your TypeScript code base grows it becomes important
                 to organize classes and interfaces for better
@@ -658,12 +624,11 @@
         <section data-background-color="#03324c" id="uses-slide">
             <h2 class="orange">When it makes sense to use</h2>
             <ul>
-                <li>When you have a large codebase</li>
-                <li>When your team’s developers are already
-                    accustom to statically-typed languages
-                </li>
-                <li>TypeScript can serve as a replacement for Babel</li>
-                <li>When you really feel the need for speed</li>
+                <li class="fragment">When you have a large codebase</li>
+                <li class="fragment">When your team’s developers are already
+                    accustom to statically-typed languages</li>
+                <li class="fragment">TypeScript can serve as a replacement for Babel</li>
+                <li class="fragment">When you really feel the need for speed</li>
             </ul>
         </section>
         <section data-background-color="#03324c" id="statistic-slide">
@@ -679,6 +644,10 @@
                 And on the other hand, JavaScript’s popularity is s
                 lowly but surely decreasing.
             </aside>
+        </section>
+        <section data-background-color="#03324c" id="conclusion-slide">
+            <img src="img/conclusion.png" alt="" class="img-style"
+                 width="50%">
         </section>
         <section data-background-color="#03324c" id="finish-slide">
             <blockquote>

@@ -62,6 +62,14 @@ pre {
     margin: 0;
 }
 
+#wat-slide img {
+    width: 200px;
+    position: absolute;
+    bottom: 351px;
+    left: 821px;
+    transform: rotate(21deg);
+}
+
 #gif-slide img {
     border: none;
     width: 500px;
@@ -89,7 +97,18 @@ pre {
     font-size: 35px;
 }
 
+#topten-slide img {
+    position: absolute;
+}
+
 #variable-slide img {
     margin: 0;
 }
 
+pre {
+    font-size: 0.45em !important;
+}
+
+.reveal pre code {
+    max-height: none !important;
+}
